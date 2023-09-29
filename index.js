@@ -6,6 +6,10 @@ const flash = require('express-flash')
 
 const app = express()
 
+//Models
+const User = require("./models/User")
+const Tought = require("./models/Tought")
+
 const conn = require('./db/conn')
 const { response } = require('express')
 app.engine('handlebars', exphbs.engine())
