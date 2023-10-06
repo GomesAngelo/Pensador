@@ -10,6 +10,14 @@ const app = express()
 const User = require("./models/User")
 const Tought = require("./models/Tought")
 
+//Rotas
+const toughtsRouter = require('./routes/toughtsRouter')
+
+//controller
+
+const toughtController = require('./controllers/ToughtController')
+
+
 const conn = require('./db/conn')
 const { response } = require('express')
 app.engine('handlebars', exphbs.engine())
@@ -49,6 +57,12 @@ app.use(session({
     httpOnly: true
   }
 }))
+
+//rotas
+app.use('/toughts',toughtsRouter)
+
+app.get('/', toughtController.showTought)
+
 conn
   .sync()
   .then(() => {
