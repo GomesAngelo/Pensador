@@ -12,10 +12,11 @@ const Tought = require("./models/Tought")
 
 //Rotas
 const toughtsRouter = require('./routes/toughtsRouter')
+const authRouters = require('./routes/authRoutes')
 
 //controller
 
-const toughtController = require('./controllers/ToughtController')
+const ToughtController = require('./controllers/ToughtController')
 
 
 const conn = require('./db/conn')
@@ -33,13 +34,7 @@ app.use(flash())
 
 app.use(express.static('public'))
 
-//Midlleware para armazenar sessões na resposta
-app.use((request, response, next) =>{
-  if (request.session.userId) {
-    response.locals.session = request.session
-  }
-  next()
-})
+
 
 app.use(session({
   name: "session",
@@ -57,11 +52,19 @@ app.use(session({
     httpOnly: true
   }
 }))
+//Midlleware para armazenar sessões na resposta
+app.use((request, response, next) =>{
+  if (request.session.userId) {
+    response.locals.session = request.session
+  }
+  next()
+})
 
 //rotas
 app.use('/toughts',toughtsRouter)
+app.use('/',authRouters)
 
-app.get('/', toughtController.showTought)
+app.get('/', ToughtController.showTought)
 
 conn
   .sync()

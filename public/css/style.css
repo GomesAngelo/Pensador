@@ -59,3 +59,64 @@ footer span{
   font-weight: bold;
   color: var(--white);
 }
+
+/* Cadastro */
+.formRegister{
+  display: flex;
+  flex-direction: column;
+}
+.sectionRegister {
+  max-width: 468px;
+  max-height: 500px;
+  margin: auto;
+}
+.sectionRegister h1{
+  padding: 10px 0;
+}
+.sectionRegister h1::before{
+  content: "";
+  padding: 3px;
+  margin-right: 5px;
+  background-color: #068fff;
+}
+.formRegister label{
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.formRegister input{
+  border: 2px solid var(--white);
+  padding: 10px;
+}
+.formRegister input[type=submit]{
+  margin-top: 20px;
+  max-width: 154px;
+  border-color: #068fff;
+  color: #068fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transform: 0.5s;
+  border-radius: 5px;
+}
+.formRegister[type=submit]:hover{
+  background-color: var(--blue);
+  color: var(--white);
+}
+.sectionRegister p{
+  margin-top: 20px;
+}
+.sectionRegister a{
+  color: #068fff;
+}
+
+.messages{
+  padding: 1rem;
+  color: var(--blue);
+  background-color: var(--white);
+  border: 1px solid var(--blue);
+  border: 5px;
+  text-align: center;
+  margin: 0 auto 2rem;
+  width: 60%;
+}
